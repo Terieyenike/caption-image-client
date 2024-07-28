@@ -2,6 +2,9 @@
 
 import { CldUploadWidget } from "next-cloudinary";
 import { useState } from "react";
+import copy from "copy-to-clipboard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState("");
@@ -24,6 +27,13 @@ export default function Home() {
     setLoading(false);
   };
 
+  const handleCopyCaption = () => {
+    copy(caption, {
+      debug: true,
+    });
+    toast("✅ Copied");
+  };
+
   return (
     <main className='flex min-h-screen flex-col items-center justify-center p-4 bg-gray-100'>
       <h1 className='text-2xl font-bold mb-8'>AI-Enhanced Photo Captioner</h1>
@@ -42,8 +52,10 @@ export default function Home() {
         {caption && (
           <div className='flex flex-col items-center justify-center border border-dashed border-gray-400 p-4 bg-white rounded-lg'>
             <h2 className='text-xl font-semibold mb-2'>Caption:</h2>
-            <p>{caption}</p>
-            <button className='px-4 py-2 bg-emerald-700 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-600 focus:outline-none mt-5'>
+            <p className='select-none'>{caption}</p>
+            <button
+              className='px-4 py-2 bg-emerald-700 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-600 focus:outline-none mt-5 cursor-pointer'
+              onClick={handleCopyCaption}>
               Copy caption
             </button>
           </div>
@@ -63,6 +75,7 @@ export default function Home() {
           )}
         </CldUploadWidget>
       </div>
+      <ToastContainer theme='dark' />
     </main>
   );
 }
