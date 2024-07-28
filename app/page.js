@@ -15,13 +15,16 @@ export default function Home() {
     setLoading(true);
     setImageUrl(result.info.secure_url);
 
-    const response = await fetch("http://localhost:8080/api/v1/caption", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ imageUrl: result.info.secure_url }),
-    });
+    const response = await fetch(
+      "https://caption-image-server.onrender.com/api/v1/caption",
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ imageUrl: result.info.secure_url }),
+      }
+    );
     const data = await response.json();
     setCaption(data.caption);
     setLoading(false);
