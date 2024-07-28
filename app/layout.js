@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,8 +11,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body className={inter.className}>
+        {children}
+        <footer className='w-full flex flex-col sm:flex-row justify-between items-center bg-white sm:px-8 px-4 py-4 border-t border-t-[#e6ebf4]'>
+          <p className='text-gray-600 text-sm'>Caption Image</p>
+
+          <p className='text-gray-600 text-sm'>
+            Built with Next.js, Cloudinary, Express
+          </p>
+        </footer>
+      </body>
     </html>
   );
 }
