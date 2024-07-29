@@ -38,7 +38,7 @@ export default function Home() {
   };
 
   return (
-    <main className='flex min-h-screen flex-col items-center justify-center p-4 bg-gray-100'>
+    <main className='flex min-h-screen flex-col items-center justify-center p-4 bg-gray-800'>
       <h1 className='text-2xl font-bold mb-8'>AI-Enhanced Photo Captioner</h1>
       <div className='w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
         {imageUrl && (
@@ -53,7 +53,7 @@ export default function Home() {
           </div>
         )}
         {caption && (
-          <div className='flex flex-col items-center justify-center border border-dashed border-gray-400 p-4 bg-white rounded-lg'>
+          <div className='flex flex-col items-center justify-center border border-dashed border-gray-400 p-4 bg-white rounded-lg text-gray-900'>
             <h2 className='text-xl font-semibold mb-2'>Caption:</h2>
             <p className='select-none'>{caption}</p>
             <button
