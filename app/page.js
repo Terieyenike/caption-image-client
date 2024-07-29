@@ -43,7 +43,9 @@ export default function Home() {
       <div className='w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
         {imageUrl && (
           <div className='flex flex-col items-center justify-center border border-dashed border-gray-400 p-4 bg-white rounded-lg'>
-            <h2 className='text-xl font-semibold mb-2'>Uploaded Image:</h2>
+            <h2 className='text-xl font-semibold mb-2 text-gray-900'>
+              Uploaded Image:
+            </h2>
             <img
               src={imageUrl}
               alt='Uploaded'
